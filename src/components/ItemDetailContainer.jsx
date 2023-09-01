@@ -5,8 +5,7 @@ import ItemDetail from './ItemDetail';
 
 const ItemDetailContainer = () => {
   const { id } = useParams();
-  const [producto, setProducto] = useState(null); // Inicializa el estado con null
-
+  const [producto, setProducto] = useState(null);
   useEffect(() => {
     const db = getFirestore();
     const productoDoc = doc(db, 'COMPRAS', id);

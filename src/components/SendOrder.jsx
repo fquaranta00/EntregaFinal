@@ -8,8 +8,7 @@ const SendOrder = () => {
   const [email, setEmail] = useState("");
   const [orderId, setOrderId] = useState(null);
   const [orderSent, setOrderSent] = useState(false);
-  const [emailValid, setEmailValid] = useState(true); // Agregar estado para la validación del email
-
+  const [emailValid, setEmailValid] = useState(true);
   const { cart, clear } = useContext(CartContext);
 
   const db = getFirestore();
@@ -20,7 +19,7 @@ const SendOrder = () => {
     const emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
     if (!emailPattern.test(email)) {
       setEmailValid(false);
-      return; // No envíes la orden si el email no es válido
+      return; // No envía la orden si el email no es válido
     }
 
     const order = {
@@ -64,10 +63,10 @@ const SendOrder = () => {
               placeholder="email"
               onChange={(e) => {
                 setEmail(e.target.value);
-                setEmailValid(true); // Restablecer la validación cuando cambia el email
+                setEmailValid(true); // Restablece la validación cuando cambia el email
               }}
               mb={2}
-              isInvalid={!emailValid} // Marcar el campo como no válido si emailValid es falso
+              isInvalid={!emailValid} // Marca el campo como no válido si emailValid es falso
             />
             {!emailValid && (
               <Alert status="error" mb={2}>

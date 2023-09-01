@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import { CartProvider } from './context/CartContext';
-import { auth } from './main';
 import NavBar from './components/NavBar';
 import Home from './components/Home';
 import About from './components/About';
@@ -38,8 +37,6 @@ const App = () => {
               <Route path="/cart" element={<Cart />} />
             </>
           ) : null}
-
-          {/* Redirigir a /login si no se ha iniciado sesión */}
           <Route path="/*" element={(userLoggedIn || window.location.pathname === '/login' || window.location.pathname === '/signup') ? <Navigate to="/" /> : <Navigate to="/login" />} />
         </Routes>
       </CartProvider>

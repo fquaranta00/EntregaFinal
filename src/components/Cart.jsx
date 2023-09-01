@@ -1,4 +1,4 @@
-import { Link,useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useCartContext } from "../context/CartContext";
 import { Box, Button, Text, VStack } from "@chakra-ui/react";
 import CartItem from "./CartItem";
@@ -34,7 +34,7 @@ const Cart = () => {
           <Button colorScheme="red" onClick={clear}>
             Vaciar carrito
           </Button>
-          <Link to={`/sendorder`}> 
+          <Link to={`/sendorder`}>
             <Button colorScheme="green">Confirmar compra</Button>
           </Link>
         </VStack>

@@ -11,16 +11,16 @@ const CartItem = ({ cartItem, onRemove }) => {
       p={4}
       borderWidth={1}
       rounded="md"
-      bg="white" // Fondo blanco
-      boxShadow="md" // Sombra
-      mb={4} // Espacio inferior entre elementos del carrito
+      bg="white"
+      boxShadow="md"
+      mb={4}
     >
       <Image
         src={item.img}
         alt={item.nombre}
         boxSize={12}
-        objectFit="cover" // Ajusta la imagen al tamaño del cuadro
-        borderRadius="md" // Borde redondeado
+        objectFit="cover"
+        borderRadius="md"
       />
       <Box flex="1" ml={4}>
         <Text fontSize="lg" fontWeight="bold">
@@ -31,7 +31,7 @@ const CartItem = ({ cartItem, onRemove }) => {
         <Button
           size="sm"
           colorScheme="red"
-          mt={2} // Espacio superior del botón
+          mt={2}
           onClick={onRemove}
         >
           Eliminar

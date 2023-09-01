@@ -1,8 +1,6 @@
 import { Box, Flex, Spacer, Menu, MenuButton, MenuList, MenuItem, Text } from "@chakra-ui/react";
 import CartWidget from "./CartWidget";
 import { Link } from "react-router-dom";
-import { CartProvider } from "../context/CartContext";
-// import { useContext } from "react";
 
 const NavBar = () => {
   const categorias = [
@@ -13,7 +11,6 @@ const NavBar = () => {
     { id: 'varios', nombre: 'Varios' },
   ];
 
-  // const { cart } = useContext(CartContext); // Usar useContext para acceder al contexto
 
 
   return (
@@ -49,7 +46,7 @@ const NavBar = () => {
         </Box>
         <Spacer />
         <Box>
-            <CartWidget />
+          <CartWidget />
         </Box>
       </Flex>
     </Box>

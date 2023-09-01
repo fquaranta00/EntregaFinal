@@ -11,7 +11,7 @@ const Items = ({ nombre, description, id, category, stock, img }) => {
         mx='auto'
         bg="rgb(255, 217, 183)"
       >
-        <Flex direction='column'> 
+        <Flex direction='column'>
           <Image
             objectFit='cover'
             maxW={{ base: '100%', sm: '200px' }}

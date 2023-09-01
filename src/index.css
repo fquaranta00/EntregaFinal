@@ -24,14 +24,14 @@ p {
   padding: 40px;
   /* color: #fff; */
   text-shadow:
-      0 0 7px #fff,
-      0 0 10px #fff,
-      0 0 21px #fff,
-      0 0 42px #0fa,
-      0 0 82px #0fa,
-      0 0 92px #0fa,
-      0 0 102px #0fa,
-      0 0 151px #0fa;
+    0 0 7px #fff,
+    0 0 10px #fff,
+    0 0 21px #fff,
+    0 0 42px #0fa,
+    0 0 82px #0fa,
+    0 0 92px #0fa,
+    0 0 102px #0fa,
+    0 0 151px #0fa;
 }
 
 .logout-button {
@@ -52,21 +52,22 @@ p {
 
 
 
-/* Info.css */
 
 .info-container {
   font-family: 'Droid Serif', serif;
   font-size: 14px;
   color: #2f2f2f;
   background-color: #f9f7f1;
-  padding: 0; /* Elimina el relleno para ocupar toda la pantalla */
-  height: 100vh; /* Establece la altura para ocupar toda la pantalla */
+  padding: 0;
+  /* Elimina el relleno para ocupar toda la pantalla */
+  height: 100vh;
+  /* Establece la altura para ocupar toda la pantalla */
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  background: rgb(34,193,195);
-  background: linear-gradient(0deg, rgba(34,193,195,1) 0%, rgba(255,215,130,1) 100%);
+  background: rgb(34, 193, 195);
+  background: linear-gradient(0deg, rgba(34, 193, 195, 1) 0%, rgba(255, 215, 130, 1) 100%);
 }
 
 .info-header {
@@ -80,7 +81,8 @@ p {
 .info-container p {
   margin-top: 0;
   margin-bottom: 20px;
-  text-align: center; /* Centra el texto */
+  text-align: center;
+  /* Centra el texto */
 }
 
 .info-container a {
@@ -91,5 +93,3 @@ p {
 .info-container a:hover {
   color: #000;
 }
-
-
