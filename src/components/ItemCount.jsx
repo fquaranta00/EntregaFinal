@@ -34,7 +34,7 @@ const ItemCount = ({ onAdd }) => {
       <Button colorScheme="blue" onClick={sumar} mr={2}>
         +
       </Button>
-      <Button colorScheme="red" onClick={clear} mr={2}>
+      <Button colorScheme="orange" onClick={clear} mr={2}>
         Clear
       </Button>
       <Button colorScheme="green" onClick={handleAdd} mr={2}>

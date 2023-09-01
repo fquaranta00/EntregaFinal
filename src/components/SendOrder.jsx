@@ -1,40 +1,89 @@
-import { collection, addDoc, getFirestore } from "firebase/firestore"
-import { useState } from "react"
+import { collection, addDoc, getFirestore } from "firebase/firestore";
+import { useState, useContext } from "react";
+import { CartContext } from "../context/CartContext";
+import { Input, Button, Box, Center, Alert, AlertIcon } from "@chakra-ui/react";
+
 const SendOrder = () => {
-    const [name, setName] = useState("")
-    const [email, setEmail] = useState("")
-    const [orderId, setOrderId] = useState(null)
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [orderId, setOrderId] = useState(null);
+  const [orderSent, setOrderSent] = useState(false);
+  const [emailValid, setEmailValid] = useState(true); // Agregar estado para la validación del email
 
-    const db = getFirestore()
+  const { cart, clear } = useContext(CartContext);
 
-    const handleSubmit = (e) => {
-        e.preventDefault()
-        addDoc(orderCollection, order).then(({id}) =>
-        setOrderId(id))
+  const db = getFirestore();
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    // Validar el formato del email antes de enviar la orden
+    const emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
+    if (!emailPattern.test(email)) {
+      setEmailValid(false);
+      return; // No envíes la orden si el email no es válido
     }
 
     const order = {
-        name,
-        email
-    }
+      name,
+      email,
+      products: cart.map((item) => ({
+        id: item.item.id,
+        name: item.item.nombre,
+        quantity: item.quantity,
+      })),
+    };
 
-    const orderCollection = collection (db, "orden")
+    addDoc(orderCollection, order).then(({ id }) => {
+      setOrderId(id);
+      clear();
+      setOrderSent(true);
+    });
+  };
+
+  const orderCollection = collection(db, "orden");
 
   return (
-    <div>
-        <h1>Enviando ordenes</h1>
-        <form onSubmit={handleSubmit}>
-            <input type="text" placeholder="nombre y apellido"
-            onChange={(e) => setName(e.target.value)}
+    <Center>
+      <Box maxW="400px" p={4}>
+        <h1>Enviando órden...</h1>
+        {orderSent ? (
+          <Alert status="success" mb={4}>
+            <AlertIcon />
+            ¡Muchas gracias por su compra! Su número de pedido es: {orderId}
+          </Alert>
+        ) : (
+          <form onSubmit={handleSubmit}>
+            <Input
+              type="text"
+              placeholder="nombre y apellido"
+              onChange={(e) => setName(e.target.value)}
+              mb={2}
             />
-            <input type="text" placeholder="email"
-            onChange={(e) => setEmail(e.target.value)}
+            <Input
+              type="text"
+              placeholder="email"
+              onChange={(e) => {
+                setEmail(e.target.value);
+                setEmailValid(true); // Restablecer la validación cuando cambia el email
+              }}
+              mb={2}
+              isInvalid={!emailValid} // Marcar el campo como no válido si emailValid es falso
             />
-            <button type="submit">enviar informacion</button>
-        </form>
-        <p>numero de orden: {orden}</p>
-    </div>
-  )
-}
+            {!emailValid && (
+              <Alert status="error" mb={2}>
+                <AlertIcon />
+                El email ingresado no es válido.
+              </Alert>
+            )}
+            <Button type="submit" colorScheme="blue">
+              Enviar información
+            </Button>
+          </form>
+        )}
+      </Box>
+    </Center>
+  );
+};
 
-export default SendOrder
+export default SendOrder;
+

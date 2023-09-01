@@ -1,20 +1,18 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Box, Icon, Text } from "@chakra-ui/react";
 import { FiShoppingCart } from "react-icons/fi";
-import { Link } from "react-router-dom"; // Importa Link desde react-router-dom
-import { useContext } from "react";
+import { Link } from "react-router-dom";
 import { CartContext } from "../context/CartContext";
 
 const CartWidget = () => {
-  const { cart } = useContext(CartContext);
-  const totalQuantity = cart.reduce((total, item) => total + item.quantity, 0);
+  const { cart, getTotalQuantity } = useContext(CartContext);
 
   return (
-    <Link to="/cart"> {/* Enlace al carrito */}
+    <Link to="/cart">
       <Box display="flex" alignItems="center">
         <Icon as={FiShoppingCart} boxSize={6} />
         <Text ml={2}>Carrito</Text>
-        {totalQuantity > 0 && <Text ml={2}>{totalQuantity}</Text>}
+        <Text ml={2}>{getTotalQuantity()}</Text> {/* Llama a la función */}
       </Box>
     </Link>
   );

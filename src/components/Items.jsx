@@ -1,25 +1,24 @@
-import { Card, CardBody, CardFooter, Stack, Text, Heading, Button, Image, Center } from '@chakra-ui/react'
+import { Card, CardBody, CardFooter, Stack, Text, Heading, Button, Image, Center, Flex } from '@chakra-ui/react'
 import { Link } from 'react-router-dom'
 
 const Items = ({ nombre, description, id, category, stock, img }) => {
-  console.log(img)
   return (
     <Center p='1rem'>
       <Card
-        direction={{ base: 'column', sm: 'row' }}
         overflow='hidden'
         variant='outline'
-        maxW='800px' // Limita el ancho de la tarjeta a 800px
-        mx='auto' // Centra horizontalmente la tarjeta
+        maxW='800px'
+        mx='auto'
+        bg="rgb(255, 217, 183)"
       >
-        <Image
-          objectFit='cover'
-          maxW={{ base: '100%', sm: '200px' }}
-          src={`../src/assets/img/${img}`} // Ruta relativa de la imagen
-          alt='varias'
-        />
+        <Flex direction='column'> 
+          <Image
+            objectFit='cover'
+            maxW={{ base: '100%', sm: '200px' }}
+            src={img}
+            alt={nombre}
+          />
 
-        <Stack ml={{ base: 0, sm: '1rem' }} mt={{ base: '1rem', sm: 0 }}>
           <CardBody>
             <Heading size='md'>{nombre}</Heading>
             <Text>Categoría: {category}</Text>
@@ -34,10 +33,11 @@ const Items = ({ nombre, description, id, category, stock, img }) => {
               </Link>
             </Button>
           </CardFooter>
-        </Stack>
+        </Flex>
       </Card>
     </Center>
   )
 }
 
 export default Items
+

@@ -1,14 +1,10 @@
+* {
+  font-family: 'Roboto', sans-serif;
+}
+
 p {
   color: rgb(87, 0, 87);
 }
-
-/* .navbar-link-prod {
-  margin-left: 15px;
-} */
-/* 
-.navbar-link {
-  margin-left: 5px;
-} */
 
 .home-container {
   background-image: url('../src/assets/img/background.jpg');
@@ -17,17 +13,33 @@ p {
   background-repeat: no-repeat;
   min-height: 100vh;
   padding: 80px 0;
+  position: relative;
 }
 
 .home-description {
   font-size: 2rem;
   font-weight: bold;
-  color: white;
+  color: rgb(255, 119, 0);
   text-align: center;
   padding: 40px;
+  /* color: #fff; */
+  text-shadow:
+      0 0 7px #fff,
+      0 0 10px #fff,
+      0 0 21px #fff,
+      0 0 42px #0fa,
+      0 0 82px #0fa,
+      0 0 92px #0fa,
+      0 0 102px #0fa,
+      0 0 151px #0fa;
 }
 
-
+.logout-button {
+  position: absolute;
+  top: 150px;
+  left: 50%;
+  transform: translateX(-50%);
+}
 
 .about-container {
   background-image: url('../src/assets/img/background2.jpg');
@@ -35,3 +47,49 @@ p {
   background-position: center;
   min-height: 100vh;
 }
+
+
+
+
+
+/* Info.css */
+
+.info-container {
+  font-family: 'Droid Serif', serif;
+  font-size: 14px;
+  color: #2f2f2f;
+  background-color: #f9f7f1;
+  padding: 0; /* Elimina el relleno para ocupar toda la pantalla */
+  height: 100vh; /* Establece la altura para ocupar toda la pantalla */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: rgb(34,193,195);
+  background: linear-gradient(0deg, rgba(34,193,195,1) 0%, rgba(255,215,130,1) 100%);
+}
+
+.info-header {
+  font-family: 'Playfair Display', serif;
+  font-weight: 900;
+  font-size: 40px;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+}
+
+.info-container p {
+  margin-top: 0;
+  margin-bottom: 20px;
+  text-align: center; /* Centra el texto */
+}
+
+.info-container a {
+  color: #2f2f2f;
+  text-decoration: underline;
+}
+
+.info-container a:hover {
+  color: #000;
+}
+
+

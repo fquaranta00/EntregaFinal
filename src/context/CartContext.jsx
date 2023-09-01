@@ -11,7 +11,7 @@ export const CartProvider = ({ children }) => {
 
   const addItem = (item, quantity) => {
     const existingItem = cart.find((cartItem) => cartItem.item.id === item.id);
-    console.log(quantity)
+    
 
     if (existingItem) {
       const updatedCart = cart.map((cartItem) =>
@@ -38,8 +38,14 @@ export const CartProvider = ({ children }) => {
     return cart.some((cartItem) => cartItem.item.id === id);
   };
 
+  const getTotalQuantity = () => {
+    return cart.reduce((total, item) => total + item.quantity, 0);
+  };
+
+ 
+  
   return (
-    <CartContext.Provider value={{ cart, addItem, removeItem, clear, isInCart }}>
+    <CartContext.Provider value={{ cart, addItem, removeItem, clear, getTotalQuantity }}>
       {children}
     </CartContext.Provider>
   );

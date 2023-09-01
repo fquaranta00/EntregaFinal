@@ -43,15 +43,13 @@ const NavBar = () => {
           </Link>
         </Box>
         <Box mx={4}>
-          <Link href="#" color="white" className="navbar-link">
+          <Link to={`/info`} href="#" color="white" className="navbar-link">
             Info
           </Link>
         </Box>
         <Spacer />
         <Box>
-          <CartProvider>
             <CartWidget />
-          </CartProvider>
         </Box>
       </Flex>
     </Box>
